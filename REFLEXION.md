@@ -1,10 +1,19 @@
 # REFLEXION.md : à compléter
 
-1. `robots.txt` empêche-t-il, à lui seul, le duplicate content entre
-   `/produits?tri=prix` et `/produits?tri=prix-asc` ? Pourquoi ?
+1. `robots.txt` empêche-t-il, à lui seul, le duplicate content entre `/produits?tri=prix` et `/produits?tri=prix-asc` ? Pourquoi ?
+   
+   Non, pas du tout car robots.txt sert uniquement à bloquer l'exploration, le crawl, par les robots de Google. 
+   Cependant, si l'URL bloquée reçoit un lien depuis une autre page ou un autre site, Google peut tout à fait l'indexer quand même. 
+   Le problème de contenu dupliqué sera donc toujours présent dans les résultats de recherche.
 
-2. Pourquoi la balise canonique est-elle l'outil adapté ici, plutôt que
-   `robots.txt` ou une meta `noindex` ?
+2. Pourquoi la balise canonique est-elle l'outil adapté ici, plutôt que `robots.txt` ou une meta `noindex` ?
 
-3. Si demain `/admin` existe sur ce site et ne doit jamais être exploré par
-   Google, quelle ligne ajoutes-tu dans `robots.txt` ?
+   Car elle indique clairement à Google quelle est la "version officielle" à conserver dans son index parmi plusieurs URLs similaires.
+   Un robots.txt empêcherait (crawl) l'exploration mais pas l'indexation.
+   Un noindex demanderait de désindexer purement et simplement la page alternative, ce qui ferait perdre toute la "puissance SEO" de ses éventuels liens. 
+   Alors que la balise canonique permet de fusionner la popularité des deux URLs vers l'URL de référence.
+
+3. Si demain `/admin` existe sur ce site et ne doit jamais être exploré par Google, quelle ligne ajoutes-tu dans `robots.txt` ?
+
+   Il faut ajouter la consigne suivante: Disallow: /admin/
+               
