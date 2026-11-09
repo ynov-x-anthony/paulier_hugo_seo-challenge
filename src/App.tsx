@@ -5,8 +5,8 @@ import Product from './pages/Product'
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/produits/:slug" element={<Product />} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/produits/:slug" element={<Product/>} />
     </Routes>
   )
 }
