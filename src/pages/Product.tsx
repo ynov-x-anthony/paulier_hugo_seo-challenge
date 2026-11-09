@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { products } from '../data'
+import { useDocumentMeta } from '../useDocumentMeta'
 
 // Mission : quelle que soit la route visitée, l'onglet affiche toujours le
 // même titre générique, et un lien partagé sur les réseaux sociaux montre
@@ -9,6 +10,13 @@ import { products } from '../data'
 export default function Product() {
   const { slug } = useParams()
   const product = products.find((p) => p.slug === slug)
+
+  useDocumentMeta({
+    title: product ? `${product.name} | CycloShop` : 'Produit introuvable',
+    description: product?.description,
+    ogTitle: product ? `${product.name} - CycloShop` : undefined,
+    ogDescription: product?.description,
+  })
 
   if (!product) return <p className="page">Produit introuvable.</p>
 
