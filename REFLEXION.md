@@ -15,5 +15,5 @@
 
 3. Si demain `/admin` existe sur ce site et ne doit jamais être exploré par Google, quelle ligne ajoutes-tu dans `robots.txt` ?
 
-   Il faut ajouter la consigne suivante: Disallow: /admin/
+   Il faut ajouter la consigne suivante: " Disallow: /admin/ " en générale, on le met en dessous de "User-agent: *"
                
